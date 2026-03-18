@@ -52,8 +52,27 @@ c.Authenticator.allow_all = True
 # Authenticate users with Native Authenticator
 c.JupyterHub.authenticator_class = "nativeauthenticator.NativeAuthenticator"
 
-# Allow anyone to sign-up without approval
-c.NativeAuthenticator.open_signup = True
+# Enable Sign-up
+c.NativeAuthenticator.enable_signup = True
+
+# Require approval for any sign-up before account login enabled
+# Set this to True to allow admin signup without approval
+c.NativeAuthenticator.open_signup = False
+
+# Disallow sign-up using a 'common' password
+c.NativeAuthenticator.check_common_password = True
+
+# Set minimum password length
+c.NativeAuthenticator.minimum_password_length = 10
+
+# Block logins after unsuccessful logon attempts
+c.NativeAuthenticator.allowed_failed_logins = 3
+
+# Set time before blocked user can retry logon
+c.NativeAuthenticator.seconds_before_next_try = 1200
+
+# Ask for email on signup
+c.NativeAuthenticator.ask_email_on_signup = True
 
 # Allowed admins
 admin = os.environ.get("JUPYTERHUB_ADMIN")

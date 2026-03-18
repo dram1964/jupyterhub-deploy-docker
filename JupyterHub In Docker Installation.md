@@ -18,6 +18,16 @@
     - see https://quay.io/repository/jupyter/datascience-notebook?tab=tags&tag=latest
     - see https://github.com/jupyter/docker-stacks/tree/main/images
     
+## Configuration Changes
+
+Changes to the `jupyterhub_config.py` will only appear by first stopping and removing the container 
+and then restarting it: 
+
+```
+docker compose stop 
+docker compose rm
+docker compose up -d
+```
 
 ## Admin
 
