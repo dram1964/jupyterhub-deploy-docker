@@ -1,0 +1,9 @@
+services:
+  # Defines build configuration and basic runtime environment
+  jupyterlab:
+    image: dhct-jupyterlab-notebook
+    build:
+      context: .
+      args:
+        JUPYTER_WORKDIR: /home/jovyan/work
+    restart: on-failure
