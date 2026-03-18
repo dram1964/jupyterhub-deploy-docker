@@ -57,6 +57,7 @@ This deployment uses Docker, via [Docker Compose](https://docs.docker.com/compos
 This deployment uses [JupyterHub Native Authenticator](https://native-authenticator.readthedocs.io/en/latest/) to authenticate users.
 
 1. An single `admin` user will be enabled by default. Any user will be allowed to sign up.
+2. Only authorised users will be able to sign in. 
 
 ## Build the JupyterHub Docker image
 
@@ -84,15 +85,12 @@ image the first time a user attempts to start his or her server. In such cases,
 JupyterHub may timeout if the image being pulled is large, so it is better to
 pull the image to the host before running JupyterHub.
 
-This deployment defaults to the
-[quay.io/jupyter/base-notebook](https://quay.io/repository/jupyter/base-notebook)
-Notebook image, which is built from the `base-notebook`
-[Docker stacks](https://github.com/jupyter/docker-stacks).
-
-You can pull the image using the following command:
+This deployment defaults to the dhct-jupyterlab-notebook:latest
+Notebook image. This image is defined in the `notebook-image` directory 
+in this repository and can be built within this directory using:
 
 ```bash
-docker pull quay.io/jupyter/base-notebook:latest
+docker compose build
 ```
 
 ## Run JupyterHub
